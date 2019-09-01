@@ -18,7 +18,7 @@ class Product {
     }
     public function showIndex($first,$secend)
     {
-        $result = $this->pdo->query("SELECT * FROM products ORDER BY id DESC LIMIT $first,$secend  ");
+        $result = $this->pdo->query("SELECT * FROM products ORDER BY id DESC LIMIT $first,$secend");
         return $result;
     }
     public function tagIndexShow()

@@ -13,8 +13,14 @@ switch ($action){
     case 'add':
         $pro_id = $_GET['id'];
         $user = $class->getUserIdForAddOrder($_SESSION['user']);
-        $class->storeOrder($user['id'],$pro_id);
-        header("location:index.php?c=product&id=$pro_id");
+        $check = $class->checkProInOrder($user['id'],$pro_id);
+        if (!empty($check)){
+            header("location:index.php?c=product&id=$pro_id&q=errorExist");
+        }else{
+            $class->storeOrder($user['id'],$pro_id);
+            header("location:index.php?c=product&id=$pro_id");
+        }
+
         break;
 
     case 'delete':

@@ -4,13 +4,22 @@ require_once "panel/functions.php";
 require_once "panel/model/category.php";
 $obj = new Category();
 $categories = $obj->ShowCatForProAdd();
+$user = $obj->getUserIdForNumberOfBasket($_SESSION['user']);
+$res = $obj->getNumberOfProInBasket($user['id']);
+$num = $obj->getNumberOfProInBasket($user['id'])->rowCount();
+if ($num == 0){
+    $number = 0;
+}else{
+    $number = $num;
+}
+
 ?>
 <!doctype html>
 <html class="no-js" lang="">
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>Home Four || Mozar</title>
+        <title>فروشگاه موزار</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         
@@ -153,7 +162,7 @@ $categories = $obj->ShowCatForProAdd();
                                     <li>
                                         <?
                                             if (isset($_SESSION['user'])){
-                                                echo "<a class=\"cart\" href=\"index.php?c=order&a=basket\">سبد خرید</a>";
+                                                echo "<a class=\"cart\" href=\"index.php?c=order&a=basket\"><span>".$number."</span>سبد خرید</a>";
                                             }
                                         ?>
                                     </li>

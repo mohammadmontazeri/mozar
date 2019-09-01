@@ -53,6 +53,12 @@ class Order {
         $res = $result->fetch(PDO::FETCH_ASSOC);
         return $res;
     }
+    public function checkProInOrder($user_id,$pro_id)
+    {
+        $result = $this->pdo->query("SELECT * FROM orders WHERE user_id='$user_id' AND pro_id='$pro_id'");
+        $res = $result->fetch(PDO::FETCH_ASSOC);
+        return $res;
+    }
     public function storeOrder($user_id,$pro_id)
     {
         $time = time();
@@ -86,13 +92,13 @@ class Order {
     }
     public function getOrderFromOrderId($id)
     {
-        $result = $this->pdo->query("SELECT * FROM orders WHERE id='$id'");
+        $result = $this->pdo->query("SELECT * FROM orders WHERE id=$id");
         $res = $result->fetch(PDO::FETCH_ASSOC);
         return $res;
     }
     public function getProductFromProId($pro_id)
     {
-        $result = $this->pdo->query("SELECT * FROM products WHERE id='$pro_id'");
+        $result = $this->pdo->query("SELECT * FROM products WHERE id=$pro_id");
         $res = $result->fetch(PDO::FETCH_ASSOC);
         return $res;
     }

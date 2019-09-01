@@ -95,6 +95,19 @@ class Category {
         $res = $this->pdo->query("SELECT * FROM products ORDER BY id DESC ");
         return $res ;
     }
+    public function getNumberOfProInBasket($user)
+    {
+        $res = $this->pdo->query("SELECT * FROM orders WHERE user_id='$user' AND basket='1' ");
+        return $res ;
+    }
+    public function getUserIdForNumberOfBasket($email)
+    {
+        $result = $this->pdo->query("SELECT * FROM users WHERE email='$email'");
+        $res = $result->fetch(PDO::FETCH_ASSOC);
+        return $res;
+    }
+
+
 }
 
 ?>

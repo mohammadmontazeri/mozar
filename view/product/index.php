@@ -36,11 +36,11 @@ if (isset($_SESSION['user'])&&(!isset($_SESSION["$product[title]"]))){
                     <div class="product-name">
                         <h1> <? echo $product['title'] ?>  </h1>
                     </div>
-                    <p class="availability">وضعیت محصول: <span><? if ($product['status'] == 0) {
-                                echo "غیر فعال";
-                            } else {
-                                echo "فعال";
-                            } ?></span></p>
+                    <? if (isset($_GET['q'])){
+                        if ($_GET['q'] == "errorExist"){
+                            echo "<label style='color: red'>محصول مورد نظر در سبد خرید شما وجود دارد</label>";
+                        }
+                    } ?>
                     <div class="price-box">
                         <p class="special-price">
                             <span class="price"><? echo $product['price'] ?> تومان</span>
