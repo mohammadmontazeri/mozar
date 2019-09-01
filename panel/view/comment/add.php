@@ -10,7 +10,7 @@ if ($_GET['q']=="main") {
             <div class="card">
                 <div class="card-header">ایجاد کامنت جدید</div>
                 <div class="card-body">
-                    <form method="POST" action="index.php?c=comment&a=store&q=<?php echo $query?>">
+                    <form method="POST" action="index.php?c=comment&a=store&q=<?php echo $query;?>">
                         <div class="form-group">
                             <label for="exampleInputEmail1">پست را انتخاب کنید</label>
                             <select name="pro_id" id="">
@@ -19,7 +19,7 @@ if ($_GET['q']=="main") {
                                 $res = $obj->numOfRec();
                                 foreach ($res as $re){
                                     ?>
-                                    <option value="<?php echo $re['id']?>"><?php echo $re['title']?></option>
+                                    <option value="<?php echo $re['id'];?>"><?php echo $re['title'];?></option>
                                     <?php
                                 }
                                 ?>
@@ -54,7 +54,7 @@ if ($_GET['q']=="main") {
                 <div class="card">
                     <div class="card-header">ایجاد کامنت جدید</div>
                     <div class="card-body">
-                        <form method="POST" action="index.php?c=comment&a=store&q=<?php echo $query?>">
+                        <form method="POST" action="index.php?c=comment&a=store&q=<?php echo $query;?>">
                             <div class="form-group row">
                                 <div class="col-md-6">
                                 <textarea id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="body" value="" required autocomplete="name" autofocus>

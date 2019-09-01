@@ -23,9 +23,9 @@ include 'jdf.php';
                         foreach ($users as $user){
                     ?>
                     <tr>
-                        <td><?php echo $user['id'] ?></td>
-                        <td><?php echo $user['name'] ?></td>
-                        <td><?php echo $user['email'] ?></td>
+                        <td><?php echo $user['id'] ;?></td>
+                        <td><?php echo $user['name']; ?></td>
+                        <td><?php echo $user['email'] ;?></td>
                         <td><img src="#"></td>
                         <td><?php
 

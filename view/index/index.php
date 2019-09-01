@@ -23,17 +23,17 @@
                                 <div class="col-lg-2 col-md-3 col-sm-4 col-xs-12">
                                     <div class="single-product-item">
                                         <div class="single-product clearfix">
-                                            <a href="index.php?c=product&id=<? echo $newProduct['id'] ?>">
+                                            <a href="index.php?c=product&id=<?php echo $newProduct['id'] ;?>">
                                                 <span class="product-image">
                                                     <img src="<?php echo upload_img_url($newProduct['image']); ?> " style="width: 250px;  height: 250px;" alt="">
                                                 </span>
 
                                             </a>
                                         </div>
-                                        <h2 class="single-product-name"><a href="index.php?c=product&id=<? echo $newProduct['id'] ?>"><? echo $newProduct['title']?></a></h2>
+                                        <h2 class="single-product-name"><a href="index.php?c=product&id=<?php echo $newProduct['id']; ?>"><?php echo $newProduct['title'];?></a></h2>
                                         <div class="price-box">
                                             <p class="special-price">
-                                                <span class="price" style="color: #f0004c;font-size: 0.8em;"><? echo $newProduct['price']?>تومان </span>
+                                                <span class="price" style="color: #f0004c;font-size: 0.8em;"><?php echo $newProduct['price'];?>تومان </span>
                                             </p>
                                         </div>
                                     </div>
@@ -70,24 +70,24 @@
                                         <div class="col-lg-2 col-md-3 col-sm-4 col-xs-12">
                                             <div class="single-product-item">
                                                 <div class="single-product clearfix">
-                                                    <a href="index.php?c=product&id=<? echo $randproduct['id'] ?>">
+                                                    <a href="index.php?c=product&id=<?php echo $randproduct['id'] ;?>">
                                                 <span class="product-image">
-                                                    <img src="<?php echo upload_img_url($randproduct['image']) ?> " style="width: 250px;  height: 250px;" alt="">
+                                                    <img src="<?php echo upload_img_url($randproduct['image']); ?> " style="width: 250px;  height: 250px;" alt="">
                                                 </span>
 
                                                     </a>
                                                 </div>
-                                                <h2 class="single-product-name"><a href="index.php?c=product&id=<? echo $randproduct['id'] ?>"><?echo $randproduct['title']?></a></h2>
+                                                <h2 class="single-product-name"><a href="index.php?c=product&id=<?php echo $randproduct['id']; ?>"><?php echo $randproduct['title'];?></a></h2>
                                                 <div class="price-box">
                                                     <p class="special-price">
                                                         <span class="price"
-                                                              style="color: #f0004c;font-size: 0.8em;"><? echo $randproduct['price']?>
+                                                              style="color: #f0004c;font-size: 0.8em;"><?php echo $randproduct['price'];?>
                                                             تومان </span>
                                                     </p>
                                                 </div>
                                             </div>
                                         </div>
-                                        <?
+                                        <?php
                                     }
                         ?>
 
@@ -119,16 +119,16 @@
                             <div class="col-lg-2 col-md-3 col-sm-4 col-xs-12">
                                 <div class="single-product-item">
                                     <div class="single-product clearfix">
-                                        <a href="index.php?c=product&id=<? echo $value['id'] ?>">
+                                        <a href="index.php?c=product&id=<?php echo $value['id']; ?>">
                                                 <span class="product-image">
-                                                    <img src="<?php echo upload_img_url($value['image']) ?> " style="width: 300px;  height: 250px;" alt="">
+                                                    <img src="<?php echo upload_img_url($value['image']); ?> " style="width: 300px;  height: 250px;" alt="">
                                                 </span>
                                         </a>
                                     </div>
-                                    <h2 class="single-product-name"><a href="index.php?c=product&id=<? echo $value['id'] ?>"><? echo $value['title']?></a></h2>
+                                    <h2 class="single-product-name"><a href="index.php?c=product&id=<?php echo $value['id']; ?>"><?php echo $value['title'];?></a></h2>
                                     <div class="price-box">
                                         <p class="special-price">
-                                            <span class="price" style="color: #f0004c;font-size: 0.8em;"><? echo $value['price']?>
+                                            <span class="price" style="color: #f0004c;font-size: 0.8em;"><?php echo $value['price'];?>
                                                 تومان </span>
                                         </p>
                                     </div>
@@ -150,17 +150,17 @@
                 <div class="brand-content">
                     <div class="row" style="">
 
-                                        <img src="<? echo public_url("mozar/img/brand/2.jpg")?>" alt="">
+                                        <img src="<?php echo public_url("mozar/img/brand/2.jpg");?>" alt="">
 
-                                        <img src="<? echo public_url("mozar/img/brand/3.jpg")?>" alt="">
+                                        <img src="<?php echo public_url("mozar/img/brand/3.jpg");?>" alt="">
 
-                                        <img src="<? echo public_url("mozar/img/brand/4.jpg")?>" alt="">
+                                        <img src="<?php echo public_url("mozar/img/brand/4.jpg");?>" alt="">
 
-                                        <img src="<? echo public_url("mozar/img/brand/5.jpg")?>" alt="">
+                                        <img src="<?php echo public_url("mozar/img/brand/5.jpg");?>" alt="">
 
-                                        <img src="<? echo public_url("mozar/img/brand/1.jpg")?>" alt="">
+                                        <img src="<?php echo public_url("mozar/img/brand/1.jpg");?>" alt="">
 
-                                        <img src="<? echo public_url("mozar/img/brand/6.jpg")?>" alt="">
+                                        <img src="<?php echo public_url("mozar/img/brand/6.jpg");?>" alt="">
 
                     </div>
                 </div>

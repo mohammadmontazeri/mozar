@@ -35,7 +35,7 @@ class Order {
     }
     public function deleteorder($id)
     {
-        $this->pdo->query("UPDATE orders SET basket = '0' WHERE id = '$id'");
+        $this->pdo->query("UPDATE orders SET basket = '0',status = '2' WHERE id = '$id'");
     }
     public function updateorder($number,$id)
     {

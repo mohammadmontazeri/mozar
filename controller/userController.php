@@ -40,10 +40,10 @@ switch ($action){
         break;
     case 'logout':
         unset($_SESSION['user']);
-        $products = $class->showProductInfForDestroySession();
+        /*$products = $class->showProductInfForDestroySession();
         foreach ($products as $product){
             unset($_SESSION["$product[title]"]);
-        }
+        }*/
         header("location:index.php?q=logoutOk");
         break;
 

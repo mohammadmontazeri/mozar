@@ -1,4 +1,4 @@
- <?
+ <?php
  require_once "panel/functions.php";
  require_once "panel/model/category.php";
  $obj = new Category();
@@ -16,11 +16,11 @@
                                 </div>
                                 <div class="footer-widget-list ">
                                     <ul>
-                                        <?
+                                        <?php
                                         foreach ($categories as $category) {
                                             ?>
-                                            <li><a href="index.php?c=product&a=listpro&id=<? echo $category['id']?>"><? echo $category['name']?></a></li>
-                                            <?
+                                            <li><a href="index.php?c=product&a=listpro&id=<?php echo $category['id'];?>"><?php echo $category['name'];?></a></li>
+                                            <?php
                                         }
                                         ?>
                                     </ul>
@@ -41,8 +41,9 @@
                                             break;
                                         }
                                         ?>
-                                        <li><a href="index.php?c=product&id=<? echo $newProduct['id']?>"><? echo $newProduct['title']?></a></li>
-                                        <?}?>
+                                        <li><a href="index.php?c=product&id=<?php echo $newProduct['id'];?>"><?php echo $newProduct['title'];?></a></li>
+                                        <?php }
+                                        ?>
                                     </ul>
                                 </div>
                             </div>
@@ -174,54 +175,54 @@
         
         <!-- jquery
         ============================================ -->        
-        <script src="<? echo public_url("mozar/js/vendor/jquery-1.11.3.min.js")?>"></script>
+        <script src="<?php echo public_url("mozar/js/vendor/jquery-1.11.3.min.js");?>"></script>
         
         <!-- bootstrap JS
         ============================================ -->        
-        <script src="<? echo public_url("mozar/js/bootstrap.min.js")?>"></script>
+        <script src="<?php echo public_url("mozar/js/bootstrap.min.js");?>"></script>
         
         <!-- nivo slider js
         ============================================ -->       
-        <script src="<? echo public_url("mozar/lib/nivo-slider/js/jquery.nivo.slider.js")?>" type="text/javascript"></script>
-        <script src="<? echo public_url("mozar/lib/nivo-slider/home.js")?>" type="text/javascript"></script>
+        <script src="<?php echo public_url("mozar/lib/nivo-slider/js/jquery.nivo.slider.js");?>" type="text/javascript"></script>
+        <script src="<?php echo public_url("mozar/lib/nivo-slider/home.js");?>" type="text/javascript"></script>
         
         <!-- wow JS
         ============================================ -->        
-        <script src="<? echo public_url("mozar/js/wow.min.js")?>"></script>
+        <script src="<?php echo public_url("mozar/js/wow.min.js");?>"></script>
             
         <!-- meanmenu JS
         ============================================ -->        
-        <script src="<? echo public_url("mozar/js/jquery.meanmenu.js")?>"></script>
+        <script src="<?php echo public_url("mozar/js/jquery.meanmenu.js");?>"></script>
 
         <!-- owl.carousel JS
         ============================================ -->        
-        <script src="<? echo public_url("mozar/js/owl.carousel.min.js")?>"></script>
+        <script src="<?php echo public_url("mozar/js/owl.carousel.min.js");?>"></script>
         
         <!-- price-slider JS
         ============================================ -->        
-        <script src="<? echo public_url("mozar/js/jquery-price-slider.js")?>"></script>
+        <script src="<?php echo public_url("mozar/js/jquery-price-slider.js");?>"></script>
         
         <!-- scrollUp JS
         ============================================ -->        
-        <script src="<? echo public_url("mozar/js/jquery.scrollUp.min.js")?>"></script>
+        <script src="<?php echo public_url("mozar/js/jquery.scrollUp.min.js");?>"></script>
 
         <!--Countdown js-->
-        <script src="<? echo public_url("mozar/js/jquery.countdown.min.js")?>"></script>
+        <script src="<?php echo public_url("mozar/js/jquery.countdown.min.js");?>"></script>
         
         <!-- Sticky Menu JS
         ============================================ -->        
-        <script src="<? echo public_url("mozar/js/jquery.sticky.js")?>"></script>
+        <script src="<?php echo public_url("mozar/js/jquery.sticky.js");?>"></script>
         
         <!-- Elevatezoom JS
         ============================================ -->        
-        <script src="<? echo public_url("mozar/js/jquery.elevateZoom-3.0.8.min.js")?>"></script>
+        <script src="<?php echo public_url("mozar/js/jquery.elevateZoom-3.0.8.min.js");?>"></script>
         
         <!-- plugins JS
         ============================================ -->        
-        <script src="<? echo public_url("mozar/js/plugins.js")?>"></script>
+        <script src="<?php echo public_url("mozar/js/plugins.js");?>"></script>
         
         <!-- main JS
         ============================================ -->        
-        <script src="<? echo public_url("mozar/js/main.js")?>"></script>
+        <script src="<?php echo public_url("mozar/js/main.js");?>"></script>
     </body>
 </html>

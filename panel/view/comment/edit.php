@@ -8,11 +8,11 @@ $query = $_GET['q'];
             <div class="card">
                 <div class="card-header">ویرایش کامنت </div>
                 <div class="card-body">
-                    <form method="POST" action="index.php?c=comment&a=update&q=<?php echo $query?>">
+                    <form method="POST" action="index.php?c=comment&a=update&q=<?php echo $query;?>">
                         <div class="form-group row">
                             <div class="col-md-6">
                                 <textarea id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="body" value="" required autocomplete="name" autofocus>
-                                <?php echo $body['body']?>
+                                <?php echo $body['body'];?>
                                 </textarea>
                             </div>
                         </div>

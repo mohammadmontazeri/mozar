@@ -1,5 +1,4 @@
 <?php
-session_start();
 include_once "panel/functions.php";
 include_once "panel/model/product.php";
 $class = new Product();
@@ -20,7 +19,7 @@ $class = new Product();
                             <th>قیمت واحد</th>
                             <th>قیمت نهایی</th>
                         </tr>
-                        <?
+                        <?php
                         $price = 0 ;
                         foreach ($orders as $key=>$value){
                             $pro = $class->showProInBasket($value['pro_id']);
@@ -32,9 +31,9 @@ $class = new Product();
                             //   foreach ($pro as $value){
                             ?>
                             <tr>
-                                <td class="p-name"><? echo $pro['title']?></td>
-                                <td class="p-quantity" style="color: red"><? echo $value['number'];?></td>
-                                <td class="p-amount"><? echo $pro['price']?></td>
+                                <td class="p-name"><?php echo $pro['title'];?></td>
+                                <td class="p-quantity" style="color: red"><?php echo $value['number'];?></td>
+                                <td class="p-amount"><?php echo $pro['price'];?></td>
                                 <td class="p-total">
                                     <label for="" class="btn btn-danger">
                                         <?php
@@ -44,7 +43,7 @@ $class = new Product();
                                     </label>
                                 </td>
                             </tr>
-                            <?
+                            <?php
                            $price = $price + $cost;
                         }
                         ?>
@@ -56,7 +55,7 @@ $class = new Product();
                 </form>
                 کل بهای پرداختی  :
                 <label class="btn btn-primary" for="">
-                    <? echo $price;?>
+                    <?php echo $price;?>
                 </label>
             </div><!-- /.box -->
         </div>

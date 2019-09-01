@@ -6,7 +6,7 @@ if (!isset($_GET['page'])){
 }else{
     $page = $_GET['page'];
 }
-$number_of_records =$obj->numOfRec()->rowCount();
+$number_of_records =$obj->numOfRecListPro($_GET['id'])->rowCount();
 $number_result_per_pages = "2";
 $number_of_pages = ceil($number_of_records/$number_result_per_pages);
 $first = ($page-1)*2;

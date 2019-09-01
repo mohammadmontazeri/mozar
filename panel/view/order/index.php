@@ -42,11 +42,11 @@ if (!isset($orders)){
                         foreach ($orders as $value){
                             ?>
                             <tr>
-                                <td><?php echo $value['id'] ?></td>
+                                <td><?php echo $value['id']; ?></td>
                                 <td><?php $product = $obj->showpronamefororder($value['pro_id']);
                                             echo $product['title'];
                                     ?></td>
-                                <td><? echo $value['number']?></td>
+                                <td><? echo $value['number'];?></td>
                                 <td><?php $user = $obj->showusernamefororder($value['user_id']);
                                     echo $user['name'];
                                     ?></td>
@@ -58,13 +58,15 @@ if (!isset($orders)){
                                     <?php
                                     if ($value['status'] == "1"){
                                         echo "<label style='color: #3c763d'>پرداخت شده</label>";
-                                    }else{
+                                    }elseif($value['status'] == "0"){
                                         echo "<label style='color: #f0004c'>پرداخت نشده</label>";
+                                    }else{
+                                        echo "<label style='color: #9f191f'>انصراف از پرداخت</label>";
                                     }
                                     ?>
                                 </td>
                                 <td>
-                                    <a class="label label-primary" href="index.php?c=order&a=edit&id=<?php echo $value['id']?>">ویرایش</a>
+                                    <a class="label label-primary" href="index.php?c=order&a=edit&id=<?php echo $value['id'];?>">ویرایش</a>
                                 </td>
                                 <td>
                                     <a class="label label-danger" href="index.php?c=order&a=delete&id=<?php echo $value['id']; ?>">حذف</a>

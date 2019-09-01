@@ -1,18 +1,19 @@
-<?
-session_start();
+<?php
 require_once "panel/functions.php";
 require_once "panel/model/category.php";
 $obj = new Category();
 $categories = $obj->ShowCatForProAdd();
-$user = $obj->getUserIdForNumberOfBasket($_SESSION['user']);
-$res = $obj->getNumberOfProInBasket($user['id']);
-$num = $obj->getNumberOfProInBasket($user['id'])->rowCount();
-if ($num == 0){
-    $number = 0;
-}else{
-    $number = $num;
-}
+if (isset($_SESSION['user'])){
+    $user = $obj->getUserIdForNumberOfBasket($_SESSION['user']);
+    $res = $obj->getNumberOfProInBasket($user['id']);
+    $num = $obj->getNumberOfProInBasket($user['id'])->rowCount();
+    if ($num == 0){
+        $number = 0;
+    }else{
+        $number = $num;
+    }
 
+}
 ?>
 <!doctype html>
 <html class="no-js" lang="">
@@ -34,45 +35,45 @@ if ($num == 0){
 
         <!-- Bootstrap CSS
         ============================================ -->        
-        <link rel="stylesheet" href="<? echo public_url("bootstrap/css/bootstrap.min.css")?>">
+        <link rel="stylesheet" href="<?php echo public_url("bootstrap/css/bootstrap.min.css");?>">
         
         <!-- nivo slider CSS
         ============================================ -->
-        <link rel="stylesheet" href="<? echo public_url("mozar/lib/nivo-slider/css/nivo-slider.css")?>" type="text/css" />
-        <link rel="stylesheet" href="<? echo public_url("mozar/lib/nivo-slider/css/preview.css")?>" type="text/css" media="screen" />
+        <link rel="stylesheet" href="<?php echo public_url("mozar/lib/nivo-slider/css/nivo-slider.css");?>" type="text/css" />
+        <link rel="stylesheet" href="<?php echo public_url("mozar/lib/nivo-slider/css/preview.css");?>" type="text/css" media="screen" />
         
         <!-- Fontawsome CSS
         ============================================ -->
-        <link rel="stylesheet" href="<? echo public_url("mozar/css/font-awesome.min.css")?>">
+        <link rel="stylesheet" href="<?php echo public_url("mozar/css/font-awesome.min.css");?>">
         
         <!-- owl.carousel CSS
         ============================================ -->
-        <link rel="stylesheet" href="<? echo public_url("mozar/css/owl.carousel.css")?>">
+        <link rel="stylesheet" href="<?php echo public_url("mozar/css/owl.carousel.css");?>">
         
         <!-- jquery-ui CSS
         ============================================ -->
-        <link rel="stylesheet" href="<? echo public_url("mozar/css/jquery-ui.css")?>">
+        <link rel="stylesheet" href="<?php echo public_url("mozar/css/jquery-ui.css");?>">
         
         <!-- meanmenu CSS
         ============================================ -->
-        <link rel="stylesheet" href="<? echo public_url("mozar/css/meanmenu.min.css")?>">
+        <link rel="stylesheet" href="<?php echo public_url("mozar/css/meanmenu.min.css");?>">
         
         <!-- animate CSS
         ============================================ -->
-        <link rel="stylesheet" href="<? echo public_url("mozar/css/animate.css")?>">
-        <link rel="stylesheet" href="<? echo public_url("chigap/css/style.css") ?>">
-        <link rel="stylesheet" href="<? echo public_url("chigap/css/owl.carousel.min.cs") ?>">
-        <link rel="stylesheet" href="<? echo public_url("chigap/css/owl.theme.default.min.css") ?>">
-        <link rel="stylesheet" href="<? echo public_url("chigap/css/media.css") ?>">
-        <script type="text/javascript" src="<? echo public_url("chigap/js/Untitled.js") ?>"></script>
-        <script type="text/javascript" src="<? echo public_url("chigap/js/owl.carousel.min.jss") ?>"></script>
+        <link rel="stylesheet" href="<?php echo public_url("mozar/css/animate.css");?>">
+        <link rel="stylesheet" href="<?php echo public_url("chigap/css/style.css") ;?>">
+        <link rel="stylesheet" href="<?php echo public_url("chigap/css/owl.carousel.min.cs"); ?>">
+        <link rel="stylesheet" href="<?php echo public_url("chigap/css/owl.theme.default.min.css") ;?>">
+        <link rel="stylesheet" href="<?php echo public_url("chigap/css/media.css"); ?>">
+        <script type="text/javascript" src="<?php echo public_url("chigap/js/Untitled.js") ;?>"></script>
+        <script type="text/javascript" src="<?php echo public_url("chigap/js/owl.carousel.min.jss"); ?>"></script>
         <!-- style CSS
         ============================================ -->
 
         <!-- responsive CSS
         ============================================ -->
-        <link rel="stylesheet" href="<? echo public_url("mozar/css/responsive.css")?>">
-        <link rel="stylesheet" href="<? echo public_url("mozar/css/style.css")?>">
+        <link rel="stylesheet" href="<?php echo public_url("mozar/css/responsive.css");?>">
+        <link rel="stylesheet" href="<?php echo public_url("mozar/css/style.css");?>">
         <style>
             body{
                 font-family: "main", sans-serif;
@@ -81,7 +82,7 @@ if ($num == 0){
         </style>
         <!-- modernizr JS
         ============================================ -->        
-        <script src="<? echo public_url("mozar/js/vendor/modernizr-2.8.3.min.js")?>"></script>
+        <script src="<?php echo public_url("mozar/js/vendor/modernizr-2.8.3.min.js");?>"></script>
     </head>
     <body>
         <!--[if lt IE 8]>
@@ -99,16 +100,16 @@ if ($num == 0){
                                 if (isset($_SESSION['user'])){
                                     ?>
                                     <a href="index.php?c=user&a=panel" style="color: #000">پنل کاربری</a> | <a href="index.php?c=user&a=logout" style="color: #f0004c">خروج</a>
-                                    <?
+                                    <?php
                                 }else{
                                     ?>
                                     <a href="index.php?c=user&a=register" style="color: #000">ثبت نام</a> | <a href="index.php?c=user&a=login" style="color: #000">ورود</a>
-                                    <?
+                                    <?php
                                 }
                             ?>
                         </div>
                         <div>
-                            <?
+                            <?php
                                 if (isset($_GET['q'])){
                                     if ($_GET['q'] == "registerOk"){
                                         echo "<label style='color: #fff;background-color: #f0004c;padding: 5px;box-sizing: border-box;border-radius: 3px;'> ثبت نام شما با موفقیت انجام شد  </label>";
@@ -125,7 +126,7 @@ if ($num == 0){
                         <div class="row">
                             <div class="col-lg-4 col-md-3">
                                 <div class="logo">
-                                    <a href="index.php"><img src="<?php echo public_url("mozar/img/logo/logo.png")?>" alt="MOZAR"></a>
+                                    <a href="index.php"><img src="<?php echo public_url("mozar/img/logo/logo.png");?>" alt="MOZAR"></a>
                                 </div>
                             </div>
                         </div>
@@ -141,11 +142,11 @@ if ($num == 0){
                                 <div class="mainmenu">
                                     <nav>
                                         <ul id="nav">
-                                            <?
+                                            <?php
                                                 foreach ($categories as $category) {
                                                     ?>
-                                                    <li><a href="index.php?c=product&a=listpro&id=<? echo $category['id']?>"><? echo $category['name']?></a></li>
-                                                    <?
+                                                    <li><a href="index.php?c=product&a=listpro&id=<?php echo $category['id'];?>"><?php echo $category['name'];?></a></li>
+                                                    <?php
                                                 }
                                             ?>
                                         </ul>
@@ -154,13 +155,13 @@ if ($num == 0){
                             </div>
                             <div class="hidden-lg hidden-md visible-sm col-sm-5 hidden-xs">
                                 <div class="logo-four">
-                                    <a href="index.html"><img src="<? echo public_url("mozar/img/logo/logo.png")?>" alt="MOZAR"></a>
+                                    <a href="index.html"><img src="<?php echo public_url("mozar/img/logo/logo.png");?>" alt="MOZAR"></a>
                                 </div>
                             </div>
                             <div class="col-lg-5 col-md-5 col-sm-7 col-xs-12">
                                 <ul class="header-r-cart cart-home-four">
                                     <li>
-                                        <?
+                                        <?php
                                             if (isset($_SESSION['user'])){
                                                 echo "<a class=\"cart\" href=\"index.php?c=order&a=basket\"><span>".$number."</span>سبد خرید</a>";
                                             }

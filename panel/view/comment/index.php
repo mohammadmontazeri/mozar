@@ -86,22 +86,22 @@ if (!isset($comments)){
                         foreach ($comments as $comment){
                             ?>
                             <tr>
-                                <td><?php echo $comment['id'] ?></td>
-                                <td><?php echo $comment['body'] ?></td>
-                                <td><?php echo userId($comment['user_id']) ?></td>
+                                <td><?php echo $comment['id']; ?></td>
+                                <td><?php echo $comment['body']; ?></td>
+                                <td><?php echo userId($comment['user_id']); ?></td>
                                 <td><?php
                                     date_default_timezone_set('Asia/Tehran');
                                     print jdate("y/m/d G.i:s", $comment['created_at']);?></td>
-                                <td><a href="index.php?c=comment&a=status&id=<?php echo $comment['id']?>" style="color: #ffffff;font-size: 1em;margin-right: 10px;"><?php echo status($comment['status']) ?></a></td>
+                                <td><a href="index.php?c=comment&a=status&id=<?php echo $comment['id'];?>" style="color: #ffffff;font-size: 1em;margin-right: 10px;"><?php echo status($comment['status']); ?></a></td>
                                 <td><?php echo postId($comment['pro_id']); ?></td>
                                 <td>
-                                    <a class="label label-primary" href="index.php?c=comment&a=edit&q=<?php echo $comment['id'] ?>">ویرایش</a>
+                                    <a class="label label-primary" href="index.php?c=comment&a=edit&q=<?php echo $comment['id']; ?>">ویرایش</a>
                                 </td>
                                 <td>
-                                    <a class="label label-danger" href="index.php?c=comment&a=delete&q=<?php echo $comment['id']?>">حذف</a>
+                                    <a class="label label-danger" href="index.php?c=comment&a=delete&q=<?php echo $comment['id'];?>">حذف</a>
                                 </td>
                                 <td>
-                                    <a class="label label-info" href="index.php?c=comment&a=add&q=<?php echo $comment['id']?>">پاسخ بده </a></td>
+                                    <a class="label label-info" href="index.php?c=comment&a=add&q=<?php echo $comment['id']; ?>">پاسخ بده </a></td>
                             </tr>
 
                         <?php } ?>

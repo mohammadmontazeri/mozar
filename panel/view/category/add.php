@@ -10,7 +10,7 @@ if (isset($_GET['q'])) {
             <div class="card">
                 <div class="card-header">ایجاد دسته جدید</div>
                 <div class="card-body">
-                    <form method="POST" action="index.php?c=category&a=store&q=<?php echo $query?>">
+                    <form method="POST" action="index.php?c=category&a=store&q=<?php echo $query;?>">
 
                         <div class="form-group row">
                             <label for="name" class="col-md-4 col-form-label text-md-right">ثبت دسته جدید</label>

@@ -38,7 +38,7 @@ if (!isset($payments)){
                         foreach ($payments as $value){
                             ?>
                             <tr>
-                                <td><?php echo $value['id'] ?></td>
+                                <td><?php echo $value['id']; ?></td>
                                 <td><?php
                                         $array = explode("-",$value['order_id']);
                                         $number = count($array);
@@ -53,7 +53,7 @@ if (!isset($payments)){
                                 <td><?php $user = $obj->showusernamefororder($value['user_id']);
                                     echo $user['name'];
                                     ?></td>
-                                <td style="color: #3c763d"><? echo $value['price']?></td>
+                                <td style="color: #3c763d"><? echo $value['price'];?></td>
                                 <td style="color: red"><?php
                                     date_default_timezone_set('Asia/Tehran');
                                     print jdate("y/m/d G.i:s", $value['created_at']);?>

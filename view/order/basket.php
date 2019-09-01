@@ -1,5 +1,4 @@
 <?php
-session_start();
 include_once "panel/functions.php";
 include_once "panel/model/product.php";
 $class = new Product();
@@ -22,7 +21,7 @@ if (isset($_POST['continue'])){
                             <th>قیمت واحد</th>
                             <th>قیمت نهایی</th>
                         </tr>
-                        <?
+                        <?php
                         $price = 0 ;
                         foreach ($orders as $key=>$value){
                             $pro = $class->showProInBasket($value['pro_id']);
@@ -34,9 +33,9 @@ if (isset($_POST['continue'])){
                             //   foreach ($pro as $value){
                             ?>
                             <tr>
-                                <td class="p-name"><? echo $pro['title']?></td>
-                                <td class="p-quantity" style="color: red"><? echo $value['number'];?></td>
-                                <td class="p-amount"><? echo $pro['price']?></td>
+                                <td class="p-name"><?php echo $pro['title'];?></td>
+                                <td class="p-quantity" style="color: red"><?php echo $value['number'];?></td>
+                                <td class="p-amount"><?php echo $pro['price'];?></td>
                                 <td class="p-total">
                                     <label for="" class="btn btn-danger">
                                         <?php
@@ -46,7 +45,7 @@ if (isset($_POST['continue'])){
                                     </label>
                                 </td>
                             </tr>
-                            <?
+                            <?php
                            $price = $price + $cost;
                         }
                         ?>
@@ -58,7 +57,7 @@ if (isset($_POST['continue'])){
                 </form>
                 کل بهای پرداختی  :
                 <label class="btn btn-primary" for="">
-                    <?
+                    <?php
                     $_SESSION['price'] = $price;
                     echo $price;?>
                 </label>
@@ -66,7 +65,7 @@ if (isset($_POST['continue'])){
         </div>
     </div>
     </div>
-    <?
+    <?php
 }else{
     ?>
 
@@ -96,7 +95,7 @@ if (isset($_POST['continue'])){
                             </tr>
                             </thead>
                             <tbody>
-                            <?
+                            <?php
 
                             foreach ($orders as $key=>$value){
                                 $pro = $class->showProInBasket($value['pro_id']);
@@ -109,12 +108,12 @@ if (isset($_POST['continue'])){
                                 ?>
                                 <tr>
                                     <td class="p-image">
-                                        <a href="product-details.html"><img alt="" style="width: 60px;" src="<? echo upload_img_url($pro['image'])?>" class="floatleft"></a>
+                                        <a href="product-details.html"><img alt="" style="width: 60px;" src="<?php echo upload_img_url($pro['image']);?>" class="floatleft"></a>
                                     </td>
-                                    <td class="p-name"><a href="product-details.html"><? echo $pro['title']?></a></td>
-                                    <td class="edit"><a href="index.php?c=order&a=delete&id=<? echo $value['id'];?>" style="background-color: #f0004c;color: #fff;padding: 3px;box-sizing: border-box;border-radius: 2.5px;">حذف</a></td>
-                                    <td class="p-amount"><? echo $pro['price']?></td>
-                                    <td class="p-quantity"><input  type="text"  name="<? echo $key?>" value="<? echo $value['number'];?>"></td>
+                                    <td class="p-name"><a href="product-details.html"><?php echo $pro['title'];?></a></td>
+                                    <td class="edit"><a href="index.php?c=order&a=delete&id=<?php echo $value['id'];?>" style="background-color: #f0004c;color: #fff;padding: 3px;box-sizing: border-box;border-radius: 2.5px;">حذف</a></td>
+                                    <td class="p-amount"><?php echo $pro['price'];?></td>
+                                    <td class="p-quantity"><input  type="text"  name="<?php echo $key;?>" value="<?php echo $value['number'];?>"></td>
                                     <td class="p-total">
                                         <?php
                                         echo $value['number']*$pro['price'];
@@ -124,7 +123,7 @@ if (isset($_POST['continue'])){
                                     </td>
                                     <td class="p-action"><a href="#"><i class="fa fa-times"></i></a></td>
                                 </tr>
-                                <?
+                                <?php
                                 //   }
                             } ?>
 
@@ -151,6 +150,6 @@ if (isset($_POST['continue'])){
         </div>
     </div>
 
-    <?
+    <?php
 }
 ?>

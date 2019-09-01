@@ -32,10 +32,10 @@ $categories =$class->ShowCatForProAdd();
             <div class="form-group">
                 <label for="exampleInputPassword1">دسته بندی مربوطه</label>
                 <select name="cat_id" required>
-                    <?
+                    <?php
                     foreach ($categories as $category) {
                         ?>
-                        <option value="<? echo $category['id']?>"> <? echo $category['name']?> </option>
+                        <option value="<?php echo $category['id'];?>"> <?php echo $category['name'];?> </option>
                         <?
                     }
                     ?>

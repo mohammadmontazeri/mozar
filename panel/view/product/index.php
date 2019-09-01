@@ -1,5 +1,5 @@
 <?php
-    include 'jdf.php';
+include 'jdf.php';
 include_once 'model/product.php';
 $obj = new Product();
 if (!isset($_GET['page'])){
@@ -46,9 +46,9 @@ if (!isset($products)){
                         foreach ($products as $product){
                             ?>
                             <tr>
-                                <td><?php echo $product['id'] ?></td>
-                                <td><?php echo $product['title'] ?></td>
-                                <td><?php echo $product['price'] ?></td>
+                                <td><?php echo $product['id']; ?></td>
+                                <td><?php echo $product['title']; ?></td>
+                                <td><?php echo $product['price'] ;?></td>
                                 <td><?php
                                     date_default_timezone_set('Asia/Tehran');
                                     print jdate("y/m/d G.i:s", $product['created_at']);?>
@@ -60,10 +60,10 @@ if (!isset($products)){
                                     echo $res['name'];
                                     ?>
                                 </td>
-                                <td><a class="label label-info" href="index.php?c=product&a=productDetail&q=<?php echo $product['id']?>">جزییات </a></td>
-                                <td><? echo $product['viewed']?></td>
+                                <td><a class="label label-info" href="index.php?c=product&a=productDetail&q=<?php echo $product['id'];?>">جزییات </a></td>
+                                <td><?php echo $product['viewed'];?></td>
                                 <td>
-                                    <a class="label label-primary" href="index.php?c=product&a=edit&q=<?php echo $product['id']?>">ویرایش</a>
+                                    <a class="label label-primary" href="index.php?c=product&a=edit&q=<?php echo $product['id'];?>">ویرایش</a>
                                 </td>
                                 <td>
                                     <a class="label label-danger" href="index.php?c=product&a=delete&id=<?php echo $product['id']; ?>">حذف</a>

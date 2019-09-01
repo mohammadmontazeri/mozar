@@ -16,6 +16,11 @@ class Product {
         $res = $this->pdo->query("SELECT * FROM products");
         return $res;
     }
+    public function numOfRecListPro($cat_id)
+    {
+        $res = $this->pdo->query("SELECT * FROM products WHERE cat_id=$cat_id");
+        return $res;
+    }
     public function showIndex($first,$secend)
     {
         $result = $this->pdo->query("SELECT * FROM products ORDER BY id DESC LIMIT $first,$secend");

@@ -21,14 +21,14 @@ include 'jdf.php';
                     foreach ($tags as $tag){
                         ?>
                         <tr>
-                            <td><?php echo $tag['id'] ?></td>
-                            <td><?php echo $tag['name'] ?></td>
+                            <td><?php echo $tag['id']; ?></td>
+                            <td><?php echo $tag['name']; ?></td>
                             <td><?php
                                 date_default_timezone_set('Asia/Tehran');
                                 print jdate("y/m/d G.i:s", $tag['created_at']);?>
                             </td>
                             <td>
-                                <a class="label label-primary" href="index.php?c=product&a=edittag&q=<?php echo $tag['id']?>">ویرایش</a>
+                                <a class="label label-primary" href="index.php?c=product&a=edittag&q=<?php echo $tag['id'];?>">ویرایش</a>
                             </td>
                             <td>
                                 <a class="label label-danger" href="index.php?c=product&a=deletetag&id=<?php echo $tag['id']; ?>">حذف</a>
