@@ -13,6 +13,7 @@ $number_of_pages = ceil($number_of_records/$number_result_per_pages);
 $first = ($page-1)*2;
 //echo $first."=".$number_of_pages."=".$number_result_per_pages."+";die;
 $payments = $obj->showIndexPaments($first,$number_result_per_pages);
+
 if (!isset($payments)){
     //echo "test";
 }else{
@@ -42,7 +43,7 @@ if (!isset($payments)){
                                 <td><?php
                                         $array = explode("-",$value['order_id']);
                                         $number = count($array);
-                                       for ($i=0;$i<=($number-1);$i++) {
+                                       for ($i=0;$i<$number-1;$i++) {
                                            $pro = $obj->getOrderFromOrderId($array[$i]);
                                            $product = $obj->getProductFromProId($pro['pro_id']);
                                            if (!empty($product['title'])){
@@ -50,7 +51,10 @@ if (!isset($payments)){
                                            }
                                        }
                                     ?></td>
-                                <td><?php $user = $obj->showusernamefororder($value['user_id']);
+                                <td><?php
+                                    echo $value['user_id'];
+
+                                    $user = $obj->showusernamefororder($value['user_id']);
                                     echo $user['name'];
                                     ?></td>
                                 <td style="color: #3c763d"><? echo $value['price'];?></td>
@@ -66,7 +70,6 @@ if (!isset($payments)){
 
                     </table>
                 </div><!-- /.box-body -->
-
             </div><!-- /.box -->
             <?php
             for ($page=1;$page<=$number_of_pages;$page++){

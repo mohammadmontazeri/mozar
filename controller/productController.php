@@ -14,18 +14,22 @@ switch ($action){
             $array = explode("-",$tags);
             $count = count($array);
             $t=0;
-            for ($i=0;$i<=$count-1;$i++){
-                if ($array[$i]!=""){
-                    $relatedpro =$class->relatedpro($id,$array[$i],$cat);
-                    foreach ($relatedpro as $value){
-                        $rel_pro[$t] = $value['id'];
-                        $t++;
+                for ($i=0;$i<=$count-1;$i++){
+                    if ($array[$i]!=""){
+                        $relatedpro =$class->relatedpro($id,$array[$i],$cat);
+                      // if (!empty($relatedpro)){
+                           foreach ($relatedpro as $value){
+                               $rel_pro[$t] = $value['id'];
+                               $t++;
+                           }
+                       //}
                     }
                 }
-            }
+                if (!empty($rel_pro)){
+                    $ar = array_unique($rel_pro);
+                }
 
         }
-        $ar = array_unique($rel_pro);
         break;
     case 'listpro':
 

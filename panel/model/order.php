@@ -125,6 +125,10 @@ class Order {
     }
 // User Model
 
+    public function deleteOrderPanel($id)
+    {
+        $this->pdo->query("DELETE FROM orders WHERE id='$id' ");
+    }
     public function newproduct()
     {
         $res = $this->pdo->query("SELECT * FROM products ORDER BY id DESC ");

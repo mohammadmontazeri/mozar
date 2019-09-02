@@ -38,6 +38,9 @@ $class = new Product();
                         if ($_GET['q'] == "errorExist"){
                             echo "<label style='color: red'>محصول مورد نظر در سبد خرید شما وجود دارد</label>";
                         }
+                        if ($_GET['q'] == "errorLogin"){
+                            echo "<label style='color: red'>برای خرید وارد سایت شوید</label>";
+                        }
                     } ?>
                     <div class="price-box">
                         <p class="special-price">
@@ -100,36 +103,38 @@ $class = new Product();
                                 <div class="product" style="margin: auto">
 
                                     <?php
-                                    $num = count($ar);
-                                   for ($a=0;$a<=$num;$a++) {
-                                       $value = $class->ShowDetailPro($ar[$a]);
-                                        ?>
-                                        <div class="col-lg-2 col-md-3 col-sm-4 col-xs-12">
-                                            <div class="single-product-item">
-                                                <div class="single-product clearfix">
-                                                    <a href="index.php?c=product&id=<?php echo $value['id']; ?>">
+                                    if (isset($ar)) {
+                                        $num = count($ar);
+                                        for ($a = 0; $a <= $num; $a++) {
+                                            $value = $class->ShowDetailPro($ar[$a]);
+                                            ?>
+                                            <div class="col-lg-2 col-md-3 col-sm-4 col-xs-12">
+                                                <div class="single-product-item">
+                                                    <div class="single-product clearfix">
+                                                        <a href="index.php?c=product&id=<?php echo $value['id']; ?>">
                                                 <span class="product-image">
                                                     <img src="<?php echo upload_img_url($value['image']); ?> "
                                                          style="width: 300px;  height: 250px;" alt="">
                                                 </span>
-                                                    </a>
-                                                </div>
-                                                <h2 class="single-product-name"><a
-                                                            href="index.php?c=product&id=<?php echo $value['id']; ?>"><?php echo $value['title'] ;?></a>
-                                                </h2>
-                                                <div class="price-box">
-                                                    <p class="special-price">
+                                                        </a>
+                                                    </div>
+                                                    <h2 class="single-product-name"><a
+                                                                href="index.php?c=product&id=<?php echo $value['id']; ?>"><?php echo $value['title']; ?></a>
+                                                    </h2>
+                                                    <div class="price-box">
+                                                        <p class="special-price">
                                                     <span class="price" style="color: #f0004c;font-size: 0.8em;"><?
-                                                                if (!empty($value['price'])){
-                                                                    echo $value['price']."تومان";
-                                                                }
-                                                            ?>
+                                                        if (!empty($value['price'])) {
+                                                            echo $value['price'] . "تومان";
+                                                        }
+                                                        ?>
                                                      </span>
-                                                    </p>
+                                                        </p>
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                        <?php
+                                            <?php
+                                        }
                                     }
                                     ?>
 

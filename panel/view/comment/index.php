@@ -13,6 +13,11 @@ function userId($user_id){
     $res = $class->ShowUserIdIndex($user_id);
     return $res['name'];
 }
+function UserRole($user_id){
+    $class = new Comment();
+    $res = $class->ShowUserIdIndex($user_id);
+    return $res['role'];
+}
 function status($status){
     if ($status == 0){
         return "<span style='color: #f0004c'>غیر فعال </span>";
@@ -95,7 +100,12 @@ if (!isset($comments)){
                                 <td><a href="index.php?c=comment&a=status&id=<?php echo $comment['id'];?>" style="color: #ffffff;font-size: 1em;margin-right: 10px;"><?php echo status($comment['status']); ?></a></td>
                                 <td><?php echo postId($comment['pro_id']); ?></td>
                                 <td>
-                                    <a class="label label-primary" href="index.php?c=comment&a=edit&q=<?php echo $comment['id']; ?>">ویرایش</a>
+                                    <?php
+                                        $role = UserRole($comment['user_id']);
+                                        if ($role == "admin"){
+                                            echo "<a class=\"label label-primary\" href=\"index.php?c=comment&a=edit&q=<?php echo $comment[id]; ?>\">ویرایش</a>";
+                                        }
+                                    ?>
                                 </td>
                                 <td>
                                     <a class="label label-danger" href="index.php?c=comment&a=delete&q=<?php echo $comment['id'];?>">حذف</a>

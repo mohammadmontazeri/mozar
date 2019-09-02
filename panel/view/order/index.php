@@ -69,7 +69,7 @@ if (!isset($orders)){
                                     <a class="label label-primary" href="index.php?c=order&a=edit&id=<?php echo $value['id'];?>">ویرایش</a>
                                 </td>
                                 <td>
-                                    <a class="label label-danger" href="index.php?c=order&a=delete&id=<?php echo $value['id']; ?>">حذف</a>
+                                    <a class="label label-danger" href="index.php?c=order&a=delete&id=<?php echo $value['id']; ?>&q=panel">حذف</a>
                                 </td>
                             </tr>
 

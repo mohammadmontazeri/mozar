@@ -11,14 +11,25 @@ switch ($action){
         break;
 
     case 'add':
-        $pro_id = $_GET['id'];
-        $user = $class->getUserIdForAddOrder($_SESSION['user']);
-        $check = $class->checkProInOrder($user['id'],$pro_id);
-        if (!empty($check)){
-            header("location:index.php?c=product&id=$pro_id&q=errorExist");
+
+        if (!isset($_SESSION['user'])){
+            $pro_id = $_GET['id'];
+            header("location:index.php?c=product&id=$pro_id&q=errorLogin");
         }else{
-            $class->storeOrder($user['id'],$pro_id);
-            header("location:index.php?c=product&id=$pro_id");
+            $pro_id = $_GET['id'];
+            $user = $class->getUserIdForAddOrder($_SESSION['user']);
+            $check = $class->checkProInOrder($user['id'],$pro_id);
+            if (!empty($check)){
+                if ($check['status'] == 0){
+                    header("location:index.php?c=product&id=$pro_id&q=errorExist");
+                }else{
+                    $class->storeOrder($user['id'],$pro_id);
+                    header("location:index.php?c=product&id=$pro_id");
+                }
+            }else{
+                $class->storeOrder($user['id'],$pro_id);
+                header("location:index.php?c=product&id=$pro_id");
+            }
         }
 
         break;

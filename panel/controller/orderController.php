@@ -7,8 +7,14 @@ $class=new Order();
 
             break;
         case 'delete':
-            $class->deleteorder($_GET['id']);
-            header("location:index.php?c=order&a=index");
+            if (isset($_GET['q'])){
+                $class->deleteOrderPanel($_GET['id']);
+                header("location:index.php?c=order&a=index");
+            }else{
+                $class->deleteorder($_GET['id']);
+                header("location:index.php?c=order&a=index");
+            }
+
             break;
 
         case 'edit':

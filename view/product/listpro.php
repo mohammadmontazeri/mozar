@@ -23,16 +23,16 @@ $products = $obj->showproforcat($first,$number_result_per_pages,$_GET['id']);
                 ?>
                     <div class="single-product-item">
                         <div class="single-product clearfix">
-                            <a href="index.php?c=product&id=<? echo $value['id'] ?>">
+                            <a href="index.php?c=product&id=<?php echo $value['id']; ?>">
                                                 <span class="product-image">
-                                                    <img src="<?php echo upload_img_url($value['image']) ?> " style="width: 300px;  height: 250px;" alt="">
+                                                    <img src="<?php echo upload_img_url($value['image']); ?> " style="width: 300px;  height: 250px;" alt="">
                                                 </span>
                             </a>
                         </div>
-                        <h2 class="single-product-name"><a href="index.php?c=product&id=<? echo $value['id'] ?>"><? echo $value['title']?></a></h2>
+                        <h2 class="single-product-name"><a href="index.php?c=product&id=<?php echo $value['id']; ?>"><?php echo $value['title'];?></a></h2>
                         <div class="price-box">
                             <p class="special-price">
-                                            <span class="price" style="color: #f0004c;font-size: 0.8em;"><? echo $value['price']?>
+                                            <span class="price" style="color: #f0004c;font-size: 0.8em;"><?php echo $value['price'];?>
                                                 تومان </span>
                             </p>
                         </div>

@@ -31,7 +31,9 @@ $class=new Product();
             //$products = $class->showIndex();
             break;
     case 'add':
-        $query = $_GET['q'];
+        if (isset($_GET['q'])){
+            $query = $_GET['q'];
+        }
         break;
     case 'store':
         $upload= new Upload();
